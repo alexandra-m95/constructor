@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Конструктор</title>
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="author" type="text/plain" href="humans.txt" />
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png" />
+
+    <link rel="stylesheet" type="text/css" href="static/include/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="static/include/simplegrid.css" />
+    <link rel="stylesheet" type="text/css" href="static/styles/constructor.css" />
+
+    <script src="static/include/babylon.js"></script>
+    <script src="static/scripts/helpers.js"></script>
+    <script src="static/scripts/constructor.js"></script>
+    <script src="static/scripts/babylon.terrainMaterial.js"></script>
+</head>
+
+<body>
+    <div class="grid grid-pad">
+        <div class="col-1-1">
+          <div class="col-5-12">
+            <div id="logo">
+               <img src="static/images/icons/logo.png">
+            </div>
+          </div>
+          <div class="col-7-12">
+               <a href="signin" id="singin-ref">Вход</a>
+          </div>
+        </div>
+        <div class="col-7-12">
+             <label id="format">""</label>
+             <div class="edition-element">
+                <label id="edition-label">ТИРАЖ, шт:</label>
+                <input type="number" id="edition-field" min="1" max="1000" value="1" onchange="changePrice(this)">
+             </div>
+             <label id="separator">></label>
+             <div class="price-element">
+                <label id="price-header">ВAША ЦЕНА, руб:</label>
+                <label id="price">""</label>
+             </div>
+
+            <div class="col-1-1">
+                <div id="model">
+                    <canvas id="render-canvas"></canvas>
+                </div>
+            </div>
+            <div class="col-1-1">
+              <div>
+                <div id="step-1" class="step">
+                  <label class="step-label">Шаг 1</label>
+                </div>
+                <div id="step-2" class="step">
+                  <label class="step-label">Шаг 2</label>
+                </div>
+                <div id="step-3" class="step">
+                  <label class="step-label">Шаг 3</label>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-5-12">
+            <div class="col-1-1">
+                <div id="parameters-case"></div>
+            </div>
+        </div>
+          <div id="modal">
+              <div id="modal-content">
+                  <span id="close" onclick="closeDialog()">×</span>
+                    <div id="colors-and-textures"></div>
+                  <button id="select">Выбрать</button>
+              </div>
+          </div>
+    </div>
+    <script src="static/scripts/main.js"></script>
+</body>
+
+</html>

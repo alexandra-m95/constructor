@@ -1,0 +1,1178 @@
+{
+    "Scene folder": "static/",
+    "Scene filename": "dailybook.babylon",
+    "Icon folder": "static/images/icons/",
+    "Texture folder": "static/images/textures/",
+    "Stitch folder": "static/images/stitches/",
+    "Base price": 200,
+    "Objects": ["LeftMainCover", "Band10mm", "Band6mm", "DefaultBinder",
+       "RightMainCover", "Pages", "RoundCornersCover", "SquareCornersCover",
+        "Threads", "Threads1", "Threads2", "Threads3", "Spiral", "SemiSpiral"],
+    "Defaults": {
+        "Format": {
+           "Type": "A5"
+        },
+        "CoverType":{
+           "Type": "Soft"
+        },
+        "MaterialThickness": {
+          "Type": "Salpa"
+        },
+        "CoverMaterial": {
+           "Type": "Leatherette",
+           "Texture": "VivellaBump"
+        },
+        "Lettering": {
+          "Type": "OnCover"
+        },
+        "Corners": {
+            "Type": "Round"
+        },
+        "Spiral": {
+            "Type": "WithoutSpiral"
+        },
+        "Stitch": {
+            "Type": "WithoutStitch",
+            "Texture": "PrestigeBump"
+        },
+        "Threads": {
+            "Type": "WithoutThreads",
+            "Color": "#f2f2f2"
+        },
+        "Clasp": {
+            "Type": "WithoutClasp"
+        },
+        "ElasticBand": {
+            "Type": "WithoutElasticBand",
+            "Color": "#ffcc66"
+        },
+        "ElasticBandPrint": {
+           "Type": "OneColor"
+        },
+        "Personalization": {
+            "Type": "WithoutPersonalization"
+        },
+        "Schild": {
+            "Type": "WithoutSchild"
+        },
+        "Shear": {
+            "Type": "WithoutShear"
+        },
+        "Pack": {
+            "Type": "WithoutCase"
+        }
+    },
+    "Parameters": {
+        "Format": {
+           "Disabled": false,
+           "Text": "Формат",
+           "Type": {
+             "A6":
+             {
+               "Text": "А6",
+               "TextIsInvisibly": true,
+               "Icon": "format_1.ico",
+               "Active icon": "active_format_1.ico",
+               "Price": 30,
+               "Objects": [],
+               "ColoringType": "Without",
+               "Colors": [],
+               "Textures": []
+             },
+             "A5-":
+             {
+               "Text": "А5-",
+               "TextIsInvisibly": true,
+               "Icon": "format_2.ico",
+               "Active icon": "active_format_2.ico",
+               "Price": 40,
+               "Objects": [],
+               "ColoringType": "Without",
+               "Colors": [],
+               "Textures": []
+             },
+             "A5":
+             {
+               "Text": "А5",
+               "TextIsInvisibly": true,
+               "Icon": "format_3.ico",
+               "Active icon": "active_format_3.ico",
+               "Price": 50,
+               "Objects": [],
+               "ColoringType": "Without",
+               "Colors": [],
+               "Textures": []
+             },
+             "A5+":
+             {
+               "Text": "А5+",
+               "TextIsInvisibly": true,
+               "Icon": "format_4.ico",
+               "Active icon": "active_format_4.ico",
+               "Price": 60,
+               "Objects": [],
+               "ColoringType": "Without",
+               "Colors": [],
+               "Textures": []
+             },
+             "A4":
+             {
+               "Text": "А4",
+               "TextIsInvisibly": true,
+               "Icon": "format_5.ico",
+               "Active icon": "active_format_5.ico",
+               "Price": 70,
+               "Objects": [],
+               "ColoringType": "Without",
+               "Colors": [],
+               "Textures": []
+             }
+           }
+        },
+        "CoverType": {
+          "Disabled": true,
+          "Text": "Тип обложки",
+          "Type": {
+            "Soft":
+            {
+              "Text": "Мягкая",
+              "TextIsInvisibly": false,
+              "Icon": "cover_type_1.ico",
+              "Active icon": "active_cover_type_1.ico",
+              "Price": 0,
+              "Objects": [],
+              "ColoringType": "Without",
+              "Colors": [],
+              "Textures": []
+            },
+            "Solid":
+            {
+              "Text": "Твердая",
+              "TextIsInvisibly": false,
+              "Icon": "cover_type_2.ico",
+              "Active icon": "active_cover_type_2.ico",
+              "Price": 0,
+              "Objects": [],
+              "ColoringType": "Without",
+              "Colors": [],
+              "Textures": []
+            },
+            "Flexible":
+            {
+              "Text": "Гибкая",
+              "TextIsInvisibly": false,
+              "Icon": "cover_type_3.ico",
+              "Active icon": "active_cover_type_3.ico",
+              "Price": 0,
+              "Objects": [],
+              "ColoringType": "Without",
+              "Colors": [],
+              "Textures": []
+            }
+          }
+        },
+        "MaterialThickness":
+        {
+          "Disabled": true,
+          "Text": "Толщина внутреннего материала",
+          "Type": {
+            "Salpa":
+            {
+              "Text": "Salpa",
+              "TextIsInvisibly": true,
+              "Icon": "thickness_1.ico",
+              "Active icon": "active_thickness_1.ico",
+              "Price": 0,
+              "Objects": [],
+              "ColoringType": "Without",
+              "Colors": [],
+              "Textures": []
+            },
+            "Tykson":
+            {
+              "Text": "Tykson",
+              "TextIsInvisibly": true,
+              "Icon": "thickness_2.ico",
+              "Active icon": "active_thickness_2.ico",
+              "Price": 0,
+              "Objects": [],
+              "ColoringType": "Without",
+              "Colors": [],
+              "Textures": []
+            }
+          }
+        },
+        "CoverMaterial": {
+          "Disabled": false,
+          "Text": "Материал обложки",
+          "Type": {
+            "Leather":
+            {
+              "Text": "Кожа",
+              "TextIsInvisibly": false,
+              "Icon": "material_1.ico",
+              "Active icon": "active_material_1.ico",
+              "Textures": ["AceroE937", "PrestigeBump", "SilhouetteNero",
+                           "PrestigeNero",
+                           "Silhouette4720",
+                           "Silhouette4890",  "SilhouetteBump", "Prestige4716",
+                           "SilhouetteE475", "Prestige4882", "SilhouetteE479"],
+              "Price": 500,
+              "Objects": [],
+              "ColoringType": "Texturing",
+              "Colors": []
+            },
+            "Leatherette":
+            {
+              "Text": "Кожзам",
+              "TextIsInvisibly": false,
+              "Icon": "material_2.ico",
+              "Active icon": "active_material_2.ico",
+              "Textures": ["CanyonThermoNero",
+                           "Oscar4716",
+                           "OscarBump",
+                           "OscarF056"],
+              "Price": 300,
+              "Objects": [],
+              "ColoringType": "Texturing",
+              "Colors": []
+            },
+            "Textile":
+            {
+              "Text": "Текстиль",
+              "TextIsInvisibly": false,
+              "Icon": "material_3.ico",
+              "Active icon": "active_material_3.ico",
+              "Textures": ["VivellaE478","Vivella4747", "VivellaE479",
+                           "Vivella4890", "VivellaF003",
+                           "VivellaBump", "VivellaNero",
+                           "VivellaD519",
+                           "VivellaE282", "VivellaE475"],
+              "Price": 200,
+              "Objects": [],
+              "ColoringType": "Texturing",
+              "Colors": []
+            },
+            "SilkLamination":
+            {
+              "Text": "Призмалюкс с шелковой ламинацией",
+              "TextIsInvisibly": false,
+              "Icon": "material_4.ico",
+              "Active icon": "active_material_4.ico",
+              "Textures": ["PrestigeBump","PrestigeNero","Prestige4716",
+                           "Prestige4882"],
+              "Price": 200,
+              "Objects": [],
+              "ColoringType": "Texturing",
+              "Colors": []
+            },
+            "MattLamination":
+            {
+              "Text": "Призмалюкс с матовой ламинацией",
+              "TextIsInvisibly": false,
+              "Icon": "material_5.ico",
+              "Active icon": "active_material_5.ico",
+              "Textures": ["AceroE937", "PrestigeBump", "SilhouetteNero", "VivellaE478",
+                           "CanyonThermoNero", "PrestigeNero", "Vivella4747", "VivellaE479",
+                           "Oscar4716", "Silhouette4720",  "Vivella4890", "VivellaF003",
+                           "OscarBump", "Silhouette4890",  "VivellaBump", "VivellaNero",
+                           "OscarF056", "SilhouetteBump",  "VivellaD519", "Prestige4716",
+                           "SilhouetteE475",  "VivellaE282", "Prestige4882", "SilhouetteE479",
+                           "VivellaE475"],
+               "Price": 200,
+               "Objects": [],
+               "ColoringType": "Texturing",
+               "Colors": []
+            },
+            "Setalux":
+            {
+              "Text": "Сеталюкс",
+              "TextIsInvisibly": false,
+              "Icon": "material_6.ico",
+              "Active icon": "active_material_6.ico",
+              "Textures": ["AceroE937", "PrestigeBump", "SilhouetteNero", "VivellaE478",
+                           "CanyonThermoNero", "PrestigeNero", "Vivella4747", "VivellaE479",
+                           "Oscar4716", "Silhouette4720",  "Vivella4890", "VivellaF003",
+                           "OscarBump", "Silhouette4890",  "VivellaBump", "VivellaNero",
+                           "OscarF056", "SilhouetteBump",  "VivellaD519", "Prestige4716",
+                           "SilhouetteE475",  "VivellaE282", "Prestige4882", "SilhouetteE479",
+                           "VivellaE475"],
+               "Price": 200,
+               "Objects": [],
+               "ColoringType": "Texturing",
+               "Colors": []
+            }
+          }
+        },
+        "Stitch": {
+            "Disabled": false,
+            "Text": "Сшивка",
+            "Type": {
+                "Stitch№1": {
+                    "Text": "Простая",
+                    "TextIsInvisibly": false,
+                    "Icon": "stitch_1.ico",
+                    "Active icon": "active_stitch_1.ico",
+                    "Folder": "map1/",
+                    "File by object": {
+                      "RightMainCover" : "1.png",
+                      "LeftMainCover" : "2.png",
+                      "RoundCornersCover" : "3.png",
+                      "SquareCornersCover" : "3.png",
+                      "DefaultBinder" : "4.png"
+                    },
+                    "Textures": ["AceroE937", "PrestigeBump", "SilhouetteNero", "VivellaE478",
+                                 "CanyonThermoNero", "PrestigeNero", "Vivella4747", "VivellaE479"],
+                    "Price": 50,
+                    "Objects": [],
+                    "ColoringType": "Texturing",
+                    "Colors": []
+                },
+                "Stitch№2": {
+                    "Text": "Простая №2",
+                    "TextIsInvisibly": true,
+                    "Icon": "stitch_2.ico",
+                    "Active icon": "active_stitch_2.ico",
+                    "Folder": "map2/",
+                    "File by object": {
+                      "RightMainCover" : "1.png",
+                      "LeftMainCover" : "2.png",
+                      "RoundCornersCover" : "3.png",
+                      "SquareCornersCover" : "3.png",
+                      "DefaultBinder" : "4.png"
+                    },
+                    "Textures": ["Oscar4716", "Silhouette4720",  "Vivella4890", "VivellaF003",
+                                 "OscarBump", "Silhouette4890",  "VivellaBump", "VivellaNero"],
+                    "Price": 50,
+                    "Objects": [],
+                    "ColoringType": "Texturing",
+                    "Colors": []
+                },
+                "Stitch№3": {
+                    "Text": "Простая №3",
+                    "TextIsInvisibly": true,
+                    "Icon": "stitch_3.ico",
+                    "Active icon": "active_stitch_3.ico",
+                    "Folder": "map3/",
+                    "File by object": {
+                      "RightMainCover" : "1.png",
+                      "LeftMainCover" : "2.png",
+                      "RoundCornersCover" : "3.png",
+                      "SquareCornersCover" : "3.png",
+                      "DefaultBinder" : "4.png"
+                    },
+                    "Textures":  ["OscarF056", "SilhouetteBump",  "VivellaD519", "Prestige4716",
+                                 "SilhouetteE475",  "VivellaE282", "Prestige4882", "SilhouetteE479",
+                                 "VivellaE475"],
+                    "Price": 50,
+                    "Objects": [],
+                    "ColoringType": "Texturing",
+                    "Colors": []
+                },
+                "Stitch№4": {
+                    "Text": "Простая №4",
+                    "TextIsInvisibly": true,
+                    "Icon": "stitch_4.ico",
+                    "Active icon": "active_stitch_4.ico",
+                    "Folder": "map4/",
+                    "File by object": {
+                      "RightMainCover" : "1.png",
+                      "LeftMainCover" : "2.png",
+                      "RoundCornersCover" : "3.png",
+                      "SquareCornersCover" : "3.png",
+                      "DefaultBinder" : "2.png"
+                    },
+                    "Textures": ["AceroE937", "PrestigeBump", "SilhouetteNero", "VivellaE478",
+                                 "CanyonThermoNero", "PrestigeNero", "Vivella4747", "VivellaE479",
+                                 "Oscar4716", "Silhouette4720",  "Vivella4890", "VivellaF003",
+                                 "OscarBump", "Silhouette4890",  "VivellaBump", "VivellaNero",
+                                 "OscarF056", "SilhouetteBump",  "VivellaD519", "Prestige4716",
+                                 "SilhouetteE475",  "VivellaE282", "Prestige4882", "SilhouetteE479",
+                                 "VivellaE475"],
+                    "Price": 50,
+                    "Objects": [],
+                    "ColoringType": "Texturing",
+                    "Colors": []
+                },
+                "Stitch№5": {
+                    "Text": "Простая №5",
+                    "TextIsInvisibly": true,
+                    "Icon": "stitch_5.ico",
+                    "Active icon": "active_stitch_5.ico",
+                    "Folder": "map5/",
+                    "File by object": {
+                      "RightMainCover" : "1.png",
+                      "LeftMainCover" : "1.png",
+                      "RoundCornersCover" : "2.png",
+                      "SquareCornersCover" : "2.png",
+                      "DefaultBinder" : "3.png"
+                    },
+                    "Textures": ["AceroE937", "PrestigeBump", "SilhouetteNero", "VivellaE478",
+                                 "CanyonThermoNero", "PrestigeNero", "Vivella4747", "VivellaE479",
+                                 "Oscar4716", "Silhouette4720",  "Vivella4890", "VivellaF003",
+                                 "OscarBump", "Silhouette4890",  "VivellaBump", "VivellaNero",
+                                 "OscarF056", "SilhouetteBump",  "VivellaD519", "Prestige4716",
+                                 "SilhouetteE475",  "VivellaE282", "Prestige4882", "SilhouetteE479",
+                                 "VivellaE475"],
+                    "Price": 50,
+                    "Objects": [],
+                    "ColoringType": "Texturing",
+                    "Colors": []
+                },
+                "Stitch№6": {
+                    "Text": "Сложная",
+                    "TextIsInvisibly": false,
+                    "Icon": "stitch_6.ico",
+                    "Active icon": "active_stitch_6.ico",
+                    "Folder": "map6/",
+                    "File by object": {
+                      "RightMainCover" : "1.png",
+                      "LeftMainCover" : "2.png",
+                      "RoundCornersCover" : "3.png",
+                      "SquareCornersCover" : "3.png",
+                      "DefaultBinder" : "2.png"
+                    },
+                    "Textures": ["AceroE937", "PrestigeBump", "SilhouetteNero", "VivellaE478",
+                                 "CanyonThermoNero", "PrestigeNero", "Vivella4747", "VivellaE479",
+                                 "Oscar4716", "Silhouette4720",  "Vivella4890", "VivellaF003",
+                                 "OscarBump", "Silhouette4890",  "VivellaBump", "VivellaNero",
+                                 "OscarF056", "SilhouetteBump",  "VivellaD519", "Prestige4716",
+                                 "SilhouetteE475",  "VivellaE282", "Prestige4882", "SilhouetteE479",
+                                 "VivellaE475"],
+                    "Price": 100,
+                    "Objects": [],
+                    "ColoringType": "Texturing",
+                    "Colors": []
+                },
+                "WithoutStitch": {
+                    "Text": "Без сшивки",
+                    "TextIsInvisibly": true,
+                    "Icon": "empty.ico",
+                    "Active icon": "active_empty.ico",
+                    "Folder": "map0/",
+                    "File by object": {
+                      "RightMainCover" : "1.png",
+                      "LeftMainCover" : "1.png",
+                      "RoundCornersCover" : "1.png",
+                      "SquareCornersCover" : "1.png",
+                      "DefaultBinder" : "1.png"
+                    },
+                    "Price": 0,
+                    "Objects": [],
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                }
+              }
+            },
+            "Lettering": {
+              "Disabled": true,
+              "Text": "Тиснение",
+              "Type": {
+                "OnCover":
+                {
+                  "Text": "На всю обложку",
+                  "TextIsInvisibly": false,
+                  "Icon": "lettering_1.ico",
+                  "Active icon": "active_lettering_1.ico",
+                  "Price": 0,
+                  "Objects": [],
+                  "ColoringType": "Without",
+                  "Colors": [],
+                  "Textures": []
+                },
+                "InCut№1":
+                {
+                  "Text": "В крое",
+                  "TextIsInvisibly": false,
+                  "Icon": "lettering_2.ico",
+                  "Active icon": "active_lettering_2.ico",
+                  "Price": 0,
+                  "Objects": [],
+                  "ColoringType": "Without",
+                  "Colors": [],
+                  "Textures": []
+                },
+                "InCut№2":
+                {
+                  "Text": "В крое №2",
+                  "TextIsInvisibly": false,
+                  "Icon": "lettering_3.ico",
+                  "Active icon": "active_lettering_3.ico",
+                  "Price": 0,
+                  "Objects": [],
+                  "ColoringType": "Without",
+                  "Colors": [],
+                  "Textures": []
+                },
+                "InCut№3":
+                {
+                  "Text": "В крое №3",
+                  "TextIsInvisibly": false,
+                  "Icon": "lettering_4.ico",
+                  "Active icon": "active_lettering_4.ico",
+                  "Price": 0,
+                  "Objects": [],
+                  "ColoringType": "Without",
+                  "Colors": [],
+                  "Textures": []
+                },
+                "InCut№4":
+                {
+                  "Text": "В крое №4",
+                  "TextIsInvisibly": false,
+                  "Icon": "lettering_5.ico",
+                  "Active icon": "active_lettering_5.ico",
+                  "Price": 0,
+                  "Objects": [],
+                  "ColoringType": "Without",
+                  "Colors": [],
+                  "Textures": []
+                },
+                "InCut№5":
+                {
+                  "Text": "В крое №5",
+                  "TextIsInvisibly": false,
+                  "Icon": "lettering_6.ico",
+                  "Active icon": "active_lettering_6.ico",
+                  "Price": 0,
+                  "Objects": [],
+                  "ColoringType": "Without",
+                  "Colors": [],
+                  "Textures": []
+                }
+            }
+          },
+          "Spiral": {
+              "Disabled": false,
+              "Text": "Спираль",
+              "Type": {
+                  "Spiral": {
+                      "Text": "Открытая",
+                      "TextIsInvisibly": false,
+                      "Objects": ["Spiral"],
+                      "Icon": "spiral_1.ico",
+                      "Active icon": "active_spiral_1.ico",
+                      "Price": 30,
+                      "ColoringType": "Without",
+                      "Colors": [],
+                      "Textures": []
+                  },
+                  "SemiSpiral": {
+                      "Text": "Полускрытая",
+                      "TextIsInvisibly": false,
+                      "Objects": ["DefaultBinder", "HalfSpiral"],
+                      "Icon": "spiral_2.ico",
+                      "Active icon": "active_spiral_2.ico",
+                      "Price": 80,
+                      "ColoringType": "Without",
+                      "Colors": [],
+                      "Textures": []
+                  },
+                  "WithoutSpiral": {
+                      "Text": "Без спирали",
+                      "TextIsInvisibly": true,
+                      "Objects": ["DefaultBinder"],
+                      "Icon": "empty.ico",
+                      "Active icon": "active_empty.ico",
+                      "Price": 60,
+                      "ColoringType": "Without",
+                      "Colors": [],
+                      "Textures": []
+                  }
+              }
+          },
+          "Threads": {
+              "Disabled": false,
+              "Text": "Прошивка по периметру",
+              "Type": {
+                  "WithThreads": {
+                      "Text": "С прошивкой",
+                      "TextIsInvisibly": true,
+                      "Icon": "thread.ico",
+                      "Active icon": "active_thread.ico",
+                      "Objects": ["Threads", "Threads1", "Threads2", "Threads3"],
+                      "Colors": ["#ff3300", "#ff6600", "#0d0d0d", "#ffcc00", "#39e600", "#006600", "#66ccff", "#004d99"],
+                      "Price": 30,
+                      "ColoringType": "Coloring",
+                      "Textures": []
+                  },
+                  "WithoutThreads": {
+                      "Text": "Без прошивки",
+                      "TextIsInvisibly": true,
+                      "Icon": "empty.ico",
+                      "Active icon": "active_empty.ico",
+                      "Objects": [],
+                      "Price": 0,
+                      "ColoringType": "Without",
+                      "Colors": [],
+                      "Textures": []
+                  }
+              }
+         },
+
+        "Corners": {
+            "Disabled": false,
+            "Text": "Углы",
+            "Type": {
+                "Round": {
+                    "Icon": "corner_1.ico",
+                    "Active icon": "active_corner_1.ico",
+                    "Text": "Круглые",
+                    "TextIsInvisibly": false,
+                    "Objects": ["RoundCornersCover"],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Square": {
+                    "Icon": "corner_2.ico",
+                    "Active icon": "active_corner_2.ico",
+                    "Text": "Прямые",
+                    "TextIsInvisibly": false,
+                    "Objects": ["SquareCornersCover"],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                }
+            }
+        },
+        "Clasp": {
+            "Disabled": true,
+            "Text": "Застежка",
+            "Type": {
+                "Clasp1": {
+                    "Text": "Скрытый магнит №1",
+                    "TextIsInvisibly": false,
+                    "Icon": "сlasp_1.ico",
+                    "Active icon": "active_сlasp_1.ico",
+                    "Objects": [],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Clasp2": {
+                    "Text": "Скрытый магнит №2",
+                    "TextIsInvisibly": false,
+                    "Icon": "сlasp_2.ico",
+                    "Active icon": "active_сlasp_2.ico",
+                    "Objects": [],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Clasp3": {
+                    "Text": "Скрытый магнит №3",
+                    "TextIsInvisibly": false,
+                    "Icon": "сlasp_3.ico",
+                    "Active icon": "active_сlasp_3.ico",
+                    "Objects": [],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Clasp4": {
+                    "Text": "Скрытый магнит №4",
+                    "TextIsInvisibly": false,
+                    "Icon": "сlasp_4.ico",
+                    "Active icon": "active_сlasp_4.ico",
+                    "Objects": [],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Clasp5": {
+                    "Text": "Открытый магнит",
+                    "TextIsInvisibly": false,
+                    "Icon": "сlasp_5.ico",
+                    "Active icon": "active_сlasp_5.ico",
+                    "Objects": [],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Clasp6": {
+                    "Text": "Кнопка сбоку",
+                    "TextIsInvisibly": false,
+                    "Icon": "сlasp_6.ico",
+                    "Active icon": "active_сlasp_6.ico",
+                    "Objects": [],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Clasp7": {
+                    "Text": "Кнопка",
+                    "TextIsInvisibly": false,
+                    "Icon": "сlasp_7.ico",
+                    "Active icon": "active_сlasp_7.ico",
+                    "Objects": [],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "WithoutClasp": {
+                    "Text": "Без застежки",
+                    "TextIsInvisibly": true,
+                    "Icon": "empty.ico",
+                    "Active icon": "active_empty.ico",
+                    "Price": 0,
+                    "Objects": [],
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                }
+            }
+        },
+        "ElasticBand": {
+            "Disabled": false,
+            "Text": "Резинка",
+            "Type": {
+                "VerticalElasticBand6mm": {
+                    "Text": "Вертик., 6мм.",
+                    "TextIsInvisibly": false,
+                    "Objects": ["Band6mm"],
+                    "Icon": "elastiс.ico",
+                    "Active icon": "active_elastic.ico",
+                    "Colors": ["#39e600", "#006600", "#66ccff", "#004d99"],
+                    "Price": 40,
+                    "ColoringType": "Coloring",
+                    "Textures": []
+                },
+                "VerticalElasticBand10mm": {
+                    "Text": "Вертик., 10мм.",
+                    "TextIsInvisibly": false,
+                    "Objects": ["Band10mm"],
+                    "Icon": "elastiс.ico",
+                    "Active icon": "active_elastic.ico",
+                    "Colors": ["#ff3300", "#ff6600", "#0d0d0d", "#ffcc00", "#39e600"],
+                    "Price": 50,
+                    "ColoringType": "Coloring",
+                    "Textures": []
+                },
+                "WithoutElasticBand": {
+                    "Text": "Без резинки",
+                    "TextIsInvisibly": true,
+                    "Objects": [],
+                    "Icon": "empty.ico",
+                    "Active icon": "active_empty.ico",
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                }
+            }
+        },
+        "ElasticBandPrint": {
+            "Disabled": true,
+            "Text": "Печать на резинке",
+            "Type": {
+                "OneColor": {
+                    "Text": "Один цвет",
+                    "TextIsInvisibly": false,
+                    "Icon": "elastic_print_1.ico",
+                    "Active icon": "active_elastic_print_1.ico",
+                    "Price": 0,
+                    "Objects": [],
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "TwoColor": {
+                    "Text": "Два цвета",
+                    "TextIsInvisibly": false,
+                    "Icon": "elastic_print_2.ico",
+                    "Active icon": "active_elastic_print_2.ico",
+                    "Price": 0,
+                    "Objects": [],
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "ThreeColor": {
+                    "Text": "Три цвета",
+                    "TextIsInvisibly": false,
+                    "Icon": "elastic_print_3.ico",
+                    "Active icon": "active_elastic_print_3.ico",
+                    "Price": 0,
+                    "Objects": [],
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "FourColor": {
+                    "Text": "Четыре цвета",
+                    "TextIsInvisibly": false,
+                    "Icon": "elastic_print_4.ico",
+                    "Active icon": "active_elastic_print_4.ico",
+                    "Price": 0,
+                    "Objects": [],
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                }
+            }
+        },
+        "Schild": {
+            "Disabled": true,
+            "Text": "Шильд на резинке",
+            "Type": {
+                "Schild№1": {
+                    "Text": "Металл. не съемный",
+                    "TextIsInvisibly": false,
+                    "Icon": "schild_1.ico",
+                    "Active icon": "active_schild_1.ico",
+                    "Objects": [],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Schild№2": {
+                    "Text": "Металл. съемный",
+                    "TextIsInvisibly": false,
+                    "Icon": "schild_2.ico",
+                    "Active icon": "active_schild_2.ico",
+                    "Objects": [],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Schild№3": {
+                    "Text": "Кожаный",
+                    "TextIsInvisibly": false,
+                    "Icon": "schild_3.ico",
+                    "Active icon": "active_schild_3.ico",
+                    "Objects": [],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Schild№4": {
+                    "Text": "Кожзам",
+                    "TextIsInvisibly": false,
+                    "Icon": "schild_4.ico",
+                    "Active icon": "active_schild_4.ico",
+                    "Objects": [],
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "WithoutSchild": {
+                    "Text": "Без шильда",
+                    "TextIsInvisibly": true,
+                    "Icon": "empty.ico",
+                    "Active icon": "active_empty.ico",
+                    "Price": 0,
+                    "Objects": [],
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                }
+            }
+        },
+        "Personalization": {
+            "Disabled": true,
+            "Text": "Персонализация",
+            "Type": {
+                "Blind":
+                {
+                  "Text": "Тиснение блинтовое",
+                  "TextIsInvisibly": false,
+                  "Objects": [],
+                  "Icon": "personal_1.ico",
+                  "Active icon": "active_personal_1.ico",
+                  "Price": 0,
+                  "ColoringType": "Without",
+                  "Colors": [],
+                  "Textures": []
+                },
+                "Foil": {
+                    "Text": "Тиснение фольгой",
+                    "TextIsInvisibly": false,
+                    "Objects": [],
+                    "Icon": "personal_2.ico",
+                    "Active icon": "active_personal_2.ico",
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Silkscreen": {
+                    "Text": "Шелкогр.",
+                    "TextIsInvisibly": false,
+                    "Objects": [],
+                    "Icon": "personal_3.ico",
+                    "Active icon": "active_personal_3.ico",
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "Schild": {
+                    "Text": "Шильд",
+                    "TextIsInvisibly": false,
+                    "Objects": [],
+                    "Icon": "personal_4.ico",
+                    "Active icon": "active_personal_4.ico",
+                    "Price": 0,
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                },
+                "WithoutPersonalization": {
+                    "Text": "Без персонализации",
+                    "TextIsInvisibly": true,
+                    "Icon": "empty.ico",
+                    "Active icon": "active_empty.ico",
+                    "Price": 0,
+                    "Objects": [],
+                    "ColoringType": "Without",
+                    "Colors": [],
+                    "Textures": []
+                }
+            }
+        },
+        "Shear": {
+          "Disabled": true,
+          "Text": "Срез",
+          "Type": {
+              "Colored": {
+                "Text": "Цветной",
+                "TextIsInvisibly": false,
+                "Icon": "section_1.ico",
+                "Active icon": "active_section_1.ico",
+                "Price": 0,
+                "Objects": [],
+                "ColoringType": "Without",
+                "Colors": [],
+                "Textures": []
+              },
+              "Logo": {
+                 "Text": "Логотип",
+                 "TextIsInvisibly": false,
+                 "Icon": "section_2.ico",
+                 "Active icon": "active_section_2.ico",
+                 "Price": 0,
+                 "Objects": [],
+                 "ColoringType": "Without",
+                 "Colors": [],
+                 "Textures": []
+              },
+              "WithoutShear": {
+                "Text": "Без среза",
+                "TextIsInvisibly": true,
+                "Icon": "empty.ico",
+                "Active icon": "active_empty.ico",
+                "Price": 0,
+                "Objects": [],
+                "ColoringType": "Without",
+                "Colors": [],
+                "Textures": []
+              }
+           }
+        },
+        "Pack": {
+          "Disabled": true,
+          "Text": "Упаковка",
+          "Type": {
+              "PencilCase": {
+                "Text": "Коробка пенал",
+                "TextIsInvisibly": false,
+                "Icon": "packing_1.ico",
+                "Active icon": "active_packing_1.ico",
+                "Price": 0,
+                "Objects": [],
+                "ColoringType": "Without",
+                "Colors": [],
+                "Textures": []
+              },
+              "BottomCase": {
+                "Text": "Крышка дно",
+                "TextIsInvisibly": false,
+                "Icon": "packing_2.ico",
+                "Active icon": "active_packing_2.ico",
+                "Price": 0,
+                "Objects": [],
+                "ColoringType": "Without",
+                "Colors": [],
+                "Textures": []
+              },
+              "WithoutCase": {
+                "Text": "Без упаковки",
+                "TextIsInvisibly": true,
+                "Icon": "packing_3.ico",
+                "Active icon": "active_packing_3.ico",
+                "Price": 0,
+                "Objects": [],
+                "ColoringType": "Without",
+                "Colors": [],
+                "Textures": []
+              }
+          }
+        }
+    },
+    "Texture": {
+          "AceroE937": {
+              "Text": "Acero E937",
+              "Texture filename": "Acero E937.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "CanyonThermoNero": {
+              "Text": "Canyon Thermo Nero",
+              "Texture filename": "Canyon Thermo Nero.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "Oscar4716": {
+              "Text": "Oscar 4716",
+              "Texture filename": "Oscar 4716.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "OscarBump": {
+              "Text": "Oscar bump",
+              "Texture filename": "Oscar bump.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "OscarF056": {
+              "Text": "Oscar F056",
+              "Texture filename": "Oscar F056.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "Prestige4716": {
+              "Text": "Prestige 4716",
+              "Texture filename": "Prestige 4716.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "Prestige4882": {
+              "Text": "Prestige 4882",
+              "Texture filename": "Prestige 4882.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "PrestigeBump": {
+              "Text": "Prestige bump",
+              "Texture filename": "Prestige bump.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "PrestigeNero": {
+              "Text": "Prestige Nero",
+              "Texture filename": "Prestige Nero.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "Silhouette4720": {
+              "Text": "Silhouette 4720",
+              "Texture filename": "Silhouette 4720.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "Silhouette4890": {
+              "Text": "Silhouette 4890",
+              "Texture filename": "Silhouette 4890.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "SilhouetteBump": {
+              "Text": "Silhouette bump",
+              "Texture filename": "Silhouette bump.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "SilhouetteE475": {
+              "Text": "Silhouette E475",
+              "Texture filename": "Silhouette E475.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "SilhouetteE479": {
+              "Text": "Silhouette E479",
+              "Texture filename": "Silhouette E479.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "SilhouetteNero": {
+              "Text": "Silhouette Nero",
+              "Texture filename": "Silhouette Nero.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "Vivella4747": {
+              "Text": "Vivella 4747",
+              "Texture filename": "Vivella 4747.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "Vivella4890": {
+              "Text": "Vivella 4890",
+              "Texture filename": "Vivella 4890.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "VivellaBump": {
+              "Text": "Vivella bump",
+              "Texture filename": "Vivella bump.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "VivellaD519": {
+              "Text": "Vivella D519",
+              "Texture filename": "Vivella D519.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "VivellaE282": {
+              "Text": "Vivella E282",
+              "Texture filename": "Vivella E282.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "VivellaE475": {
+              "Text": "Vivella E475",
+              "Texture filename": "Vivella E475.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "VivellaE478": {
+              "Text": "Vivella E478",
+              "Texture filename": "Vivella E478.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "VivellaE479": {
+              "Text": "Vivella E479",
+              "Texture filename": "Vivella E479.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "VivellaF003": {
+              "Text": "Vivella F003",
+              "Texture filename": "Vivella F003.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          },
+          "VivellaNero": {
+              "Text": "Vivella Nero",
+              "Texture filename": "Vivella Nero.jpg",
+              "Properties": ["Textured", "Smooth", "Natural leather"]
+          }
+      },
+      "TexturesByColor": {
+          "#ff3300": ["VivellaE479", "SilhouetteE479"],
+          "#ff6600": ["SilhouetteE475", "VivellaE475"],
+          "#ffcc00": ["VivellaE282"],
+          "#39e600": ["VivellaE478"],
+          "#006600": ["Silhouette4720", "Vivella4747"],
+          "#66ccff": ["VivellaF003"],
+          "#004d99": ["Oscar4716", "Prestige4716", "Silhouette4890", "Vivella4890"],
+          "#e6ccb3": ["AceroE937", "OscarF056"],
+          "#999999": ["Prestige4882", "VivellaD519"],
+          "#0d0d0d": ["CanyonThermoNero", "PrestigeNero", "SilhouetteNero", "VivellaNero"],
+          "#f2f2f2": ["OscarBump", "PrestigeBump", "SilhouetteBump", "VivellaBump"]
+      },
+      "TexturesProperties": {
+          "Textured": {
+              "Text": "Текстурная"
+          },
+          "Smooth": {
+              "Text": "Гладкая"
+          },
+          "Natural leather": {
+              "Text": "Текстура настуральной кожи"
+          }
+      }
+}
