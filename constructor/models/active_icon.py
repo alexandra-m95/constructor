@@ -1,9 +1,7 @@
 from sqlalchemy import (
     Column,
     Integer,
-    String,
-    ForeignKey,
-    Boolean,
+    String
 )
 
 from .meta import Base

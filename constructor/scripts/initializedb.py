@@ -41,6 +41,8 @@ def main(argv=sys.argv):
     with transaction.manager:
         dbsession = get_tm_session(session_factory, transaction.manager)
 
-        user = User(login=u'admin', password=u'A15+4918')
-        dbsession.add(user)
+        admin_user = User(login='dailybook_admin', password=b'A15+4918')
+        common_user = User(login='common_user', password=b'qwerty')
+        dbsession.add(admin_user)
+        dbsession.add(common_user)
 

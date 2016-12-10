@@ -15,17 +15,17 @@ var productNumber;
 loadJSON("static/customization.json", function (loadedJSON) {
     try {
         config = JSON.parse(loadedJSON);
-        currentState = config["Defaults"];
     } catch (err) {
         console.log("Error: ", err);
         stopScript();
     }
 
     try {
-        Constructor.init($("render-canvas"), config); // Создание движка и загрузка дефолтных параметров
+        fillCurrentState();
+        Constructor.init($$("render-canvas"), config); // Создание движка и загрузка дефолтных параметров
         Constructor.run(); // Запуск движка BabylonJS и прогрузка сцены
         loadParameters();
-        loadStitches();
+    //    loadStitches();
     } catch (err) {
         console.log("Error: ", err);
         stopScript();
@@ -35,16 +35,34 @@ loadJSON("static/customization.json", function (loadedJSON) {
     stopScript();
 });
 
+function fillCurrentState() {
+  currentState = {};
+  for (var parameter in config["Parameters"]) {
+      if (Object.keys(config["Parameters"][parameter]["Type"]).length != 0) {
+          var firstType = Object.keys(config["Parameters"][parameter]["Type"])[0];
+          if (!currentState.hasOwnProperty(parameter)) {
+              currentState[parameter] = {};
+          }
+          currentState[parameter]["Type"] = firstType;
+      }
+  }
+}
+
 /** Динамическое формирование областей с заголовками параметров конфигурации.
 * Вызывается метод формирования типов для каждого параметра.
 */
 function loadParameters() {
-    var format = $("format");
-    format.childNodes[0].nodeValue = currentState["Format"]["Type"];
-    productNumber = $("edition-field").value;
-    var price = $("price");
+    var format = $$("format");
+    if(config["Parameters"].hasOwnProperty("Format") && config["Parameters"]["Format"]["Type"].length != 0) {
+        var firstType = Object.keys(config["Parameters"]["Format"]["Type"])[0];
+        format.childNodes[0].nodeValue = config["Parameters"]["Format"]["Type"][firstType]["Text"];
+    }
+
+
+    productNumber = $$("edition-field").value;
+    var price = $$("price");
     price.childNodes[0].nodeValue = parseInt(config["Base price"]) * productNumber;
-    var parametersDiv = $("parameters-case");
+    var parametersDiv = $$("parameters-case");
     for (var parameter in config["Parameters"]) {
         if (!config["Parameters"][parameter]["Disabled"]) {
             var parameterDiv = document.createElement("div");
@@ -67,6 +85,7 @@ function loadParameters() {
 function loadParameterTypes(parameter, parameterDiv) {
     var parameterTypes = config["Parameters"][parameter]["Type"];
     var iconsFolder = config["Icon folder"];
+    var isFirst = true;
     for (var type in parameterTypes) {
         var typeDiv = document.createElement("div");
         var label = document.createElement("label");
@@ -83,62 +102,58 @@ function loadParameterTypes(parameter, parameterDiv) {
 
         typeDiv.name = parameter;
         typeDiv.value = type;
+        if(isFirst) {
+            changeTypeIcons(typeDiv);
+            isFirst = false;
+        }
         if (config["Parameters"][parameter]["Type"][type]["ColoringType"] == "Texturing") {
             typeDiv.setAttribute("onclick", "showTexturingDialog(event)");
-            var defaultTexture = config["Defaults"][parameter]["Texture"];
-            if (config["Defaults"][parameter]["Type"] == type) {
-                changeParameterType(typeDiv);
-                Constructor.changeTexture(parameter, defaultTexture);
-            }
         } else if (config["Parameters"][parameter]["Type"][type]["ColoringType"] == "Coloring") {
             typeDiv.setAttribute("onclick", "showColoringDialog(event)");
-            var defaultColor = config["Defaults"][parameter]["Color"];
-            if (config["Defaults"][parameter]["Type"] == type) {
-                changeParameterType(typeDiv);
-                Constructor.changeColor(parameter, defaultColor);
-            }
         } else {
             typeDiv.setAttribute("onclick", "changeParameterType(this)");
-            if (config["Defaults"][parameter]["Type"] == type) {
-                changeParameterType(typeDiv);
-                Constructor.changeModelObject(parameter, defaultTexture);
-            }
         }
         parameterDiv.appendChild(typeDiv);
     }
 }
 
+
+function changeTypeIcons(typeDiv) {
+  var iconsFolder = config["Icon folder"];
+  var parameter = typeDiv.name;
+  var type = typeDiv.value;
+  var iconPath = iconsFolder + config["Parameters"][parameter]["Type"][type]["Active icon"];
+
+  var price = $$("price");
+  var newPrice = parseInt(price.childNodes[0].nodeValue);
+  var parameterTypes = document.getElementsByClassName(parameter + "-type");
+  for (var i = 0; i < parameterTypes.length; i++) {
+      if (parameterTypes[i].className.endsWith("active")) {
+          newPrice = newPrice - config["Parameters"][parameter]["Type"][parameterTypes[i].value]["Price"] * productNumber;
+          parameterTypes[i].className = parameterTypes[i].className.replace(" active", "");
+          var oldIconPath = iconsFolder + config["Parameters"][parameterTypes[i].name]["Type"][parameterTypes[i].value]["Icon"];
+          parameterTypes[i].style.backgroundSize = "70% auto, 0%";
+      }
+  }
+
+  typeDiv.className += " active";
+  typeDiv.style.backgroundSize = "0% auto, 70%";
+  currentState[parameter]["Type"] = type;
+  newPrice = newPrice + config["Parameters"][parameter]["Type"][type]["Price"] * productNumber;
+  price.childNodes[0].nodeValue = newPrice;
+  if (parameter == "Format") {
+      var format = $$("format");
+      format.childNodes[0].nodeValue = config["Parameters"][parameter]["Type"][type]["Text"];
+  }
+}
 /** Функция, срабатывающая на клик по иконке с вариантом конфигурации.
 * Влечёт за собой изменения на отображаемой модели и в объекте с текущим состоянием конфигурации
 */
 function changeParameterType(typeDiv) {
-    var iconsFolder = config["Icon folder"];
     var parameter = typeDiv.name;
     var type = typeDiv.value;
-    var iconPath = iconsFolder + config["Parameters"][parameter]["Type"][type]["Active icon"];
-
-    var price = $("price");
-    var newPrice = parseInt(price.childNodes[0].nodeValue);
-    var parameterTypes = document.getElementsByClassName(parameter + "-type");
-    for (var i = 0; i < parameterTypes.length; i++) {
-        if (parameterTypes[i].className.endsWith("active")) {
-            newPrice = newPrice - config["Parameters"][parameter]["Type"][parameterTypes[i].value]["Price"] * productNumber;
-            parameterTypes[i].className = parameterTypes[i].className.replace(" active", "");
-            var oldIconPath = iconsFolder + config["Parameters"][parameterTypes[i].name]["Type"][parameterTypes[i].value]["Icon"];
-            parameterTypes[i].style.backgroundSize = "70% auto, 0%";
-        }
-    }
-
-    typeDiv.className += " active";
-    typeDiv.style.backgroundSize = "0% auto, 70%";
     Constructor.changeModelObject(parameter, type, currentState[parameter]["Type"]);
-    currentState[parameter]["Type"] = type;
-    newPrice = newPrice + config["Parameters"][parameter]["Type"][type]["Price"] * productNumber;
-    price.childNodes[0].nodeValue = newPrice;
-    if (parameter == "Format") {
-        var format = $("format");
-        format.childNodes[0].nodeValue = type;
-    }
+    changeTypeIcons(typeDiv);
 }
 
 /** Отображение диалогового окна для выбора текстуры. Если для данного параметра
@@ -152,32 +167,32 @@ function showTexturingDialog(event) {
     var type = typeDiv.value;
 
     changeParameterType(typeDiv);
-    var modal = $('modal');
+    var modal = $$('modal');
     modal.style.display = "block";
 
-    var close = $("close");
+    var close = $$("close");
     close.name = parameter;
     close.value = type;
 
-    var select = $("select");
+    var select = $$("select");
     select.setAttribute("onclick", "selectTexture()");
 
     var parameter = typeDiv.name;
     var type = typeDiv.value;
 
-    var dialogContent = $(parameter + type + "-dialog-content");
+    var dialogContent = $$(parameter + type + "-dialog-content");
     if (typeof dialogContent === "undefined" || dialogContent === null) {
         dialogContent = loadDialogContent(parameter, type);
     }
     dialogContent.style.display = "block";
-    var colorDivs = $(parameter + type + "-colors").childNodes;
+    var colorDivs = $$(parameter + type + "-colors").childNodes;
     if (colorDivs.length != 0) {
         colorDivs[0].click();
         var color = colorDivs[0].value;
-        var textureDivs = $(parameter + type + color + "-textures").childNodes;
+        var textureDivs = $$(parameter + type + color + "-textures").childNodes;
         if (textureDivs.length != 0) {
             textureDivs[0].click();
-            Constructor.changeTexture(parameter, textureDivs[0].name);
+            Constructor.changeTexture(parameter, type, textureDivs[0].name);
         }
     }
 }
@@ -192,34 +207,34 @@ function showColoringDialog(event) {
     var parameter = typeDiv.name;
     var type = typeDiv.value;
     changeParameterType(typeDiv);
-    var modal = $('modal');
+    var modal = $$('modal');
     modal.style.display = "block";
 
-    var close = $("close");
+    var close = $$("close");
     close.name = parameter;
     close.value = type;
 
-    var select = $("select");
+    var select = $$("select");
     select.setAttribute("onclick", "selectColor()");
 
     var parameter = typeDiv.name;
     var type = typeDiv.value;
 
-    var dialogContent = $(parameter + type + "-dialog-content");
+    var dialogContent = $$(parameter + type + "-dialog-content");
     if (typeof dialogContent === "undefined" || dialogContent === null) {
         dialogContent = loadColoringContent(parameter, type);
     }
     dialogContent.style.display = "block";
-    var colorDivs = $(parameter + type + "-colors").childNodes;
+    var colorDivs = $$(parameter + type + "-colors").childNodes;
     if (colorDivs.length != 0) {
         colorDivs[0].click();
-        Constructor.changeColor(parameter, colorDivs[0].value);
+        Constructor.changeColor(parameter, type, colorDivs[0].value);
     }
 }
 
 /** Формирование цветов в области диалогового окна для выбора цвета. */
 function loadColoringContent(parameter, type) {
-    var modalContent = $("colors-and-textures");
+    var modalContent = $$("colors-and-textures");
     var paramDialogContent = document.createElement("div");
     paramDialogContent.id = parameter + type + "-dialog-content";
     var label = document.createElement("label");
@@ -267,21 +282,22 @@ function loadColoringContent(parameter, type) {
 
 /** Вызывается в случае изменения цвета в диалоговом окне выбора цвета. */
 function changeColor(event, parameter, type) {
-    var colorsDiv = $(parameter + type + "-colors").childNodes;
+    var colorsDiv = $$(parameter + type + "-colors").childNodes;
     for (var i = 0; i < colorsDiv.length; i++) {
         if (colorsDiv[i].className.endsWith("active")) {
             colorsDiv[i].className = colorsDiv[i].className.replace(" active", "");
         }
     }
     event.currentTarget.className += " active";
-    var select = $("select");
+    var select = $$("select");
     select.name = parameter;
+    select.parameterType = type;
     select.value = event.currentTarget.value;
 }
 
 /** Формирование цветов в области диалогового окна для выбора текстуры. */
 function loadDialogContent(parameter, type) {
-    var modalContent = $("colors-and-textures");
+    var modalContent = $$("colors-and-textures");
     var paramDialogContent = document.createElement("div");
     paramDialogContent.id = parameter + type + "-dialog-content";
     var label = document.createElement("label");
@@ -340,7 +356,7 @@ function loadDialogContent(parameter, type) {
 
 /** Формирование цветов в области диалогового окна. */
 function showTextures(event, parameter, type) {
-    var colorsDiv = $(parameter + type + "-colors").childNodes;
+    var colorsDiv = $$(parameter + type + "-colors").childNodes;
     for (var i = 0; i < colorsDiv.length; i++) {
         if (colorsDiv[i].className.endsWith("active")) {
             colorsDiv[i].className = colorsDiv[i].className.replace(" active", "");
@@ -355,7 +371,7 @@ function showTextures(event, parameter, type) {
         textureDivs[i].style.display = "none";
     }
 
-    var texturesDiv = $(parameter + type + color + "-textures");
+    var texturesDiv = $$(parameter + type + color + "-textures");
     if (typeof texturesDiv === "undefined" || texturesDiv === null) {
         texturesDiv = loadTextures(parameter, type, color);
     }
@@ -369,7 +385,7 @@ function showTextures(event, parameter, type) {
 Происходит изменение набора текстур, которые доступны для выбора(в соотвествии
 с цветом).*/
 function loadTextures(parameter, type, color) {
-    var dialogContent = $(parameter + type + "-dialog-content");
+    var dialogContent = $$(parameter + type + "-dialog-content");
     var texturesDiv = document.createElement("div");
     texturesDiv.id = parameter + type + color + "-textures";
     texturesDiv.classList.add("textures-div");
@@ -416,15 +432,16 @@ function loadTextures(parameter, type, color) {
 
 /** Вызывается в случае изменения текстуры в диалоговом окне выбора текустуры. */
 function changeTexture(event, parameter, type, color) {
-    var textureDivs = $(parameter + type + color + "-textures").childNodes;
+    var textureDivs = $$(parameter + type + color + "-textures").childNodes;
     for (var i = 0; i < textureDivs.length; i++) {
         if (textureDivs[i].className.endsWith("active")) {
             textureDivs[i].className = textureDivs[i].className.replace(" active", "");
         }
     }
     event.currentTarget.className += " active";
-    var selectButton = $("select");
+    var selectButton = $$("select");
     select.name = parameter;
+    select.parameterType = type;
     select.value = event.currentTarget.name;
 }
 
@@ -432,10 +449,11 @@ function changeTexture(event, parameter, type, color) {
 текстуры на модели. */
 function selectTexture(selectButton) {
     closeDialog();
-    var selectButton = $("select");
+    var selectButton = $$("select");
     var parameter = selectButton.name;
+    var type = selectButton.parameterType;
     var texture = selectButton.value;
-    Constructor.changeTexture(parameter, texture);
+    Constructor.changeTexture(parameter, type, texture);
     currentState[parameter]["Texture"] = texture;
 }
 
@@ -443,21 +461,22 @@ function selectTexture(selectButton) {
 цвета какой-либо части модели. */
 function selectColor(selectButton) {
     closeDialog();
-    var selectButton = $("select");
+    var selectButton = $$("select");
     var parameter = selectButton.name;
+    var type = selectButton.parameterType;
     var color = selectButton.value;
-    Constructor.changeColor(parameter, color);
+    Constructor.changeColor(parameter, type, color);
     currentState[parameter]["Color"] = color;
 }
 
 /** Обработчик нажатия на кнопку  "Х" в диалоговом окне.*/
 function closeDialog() {
-    var close = $("close");
+    var close = $$("close");
     var parameter = close.name;
     var type = close.value;
-    var dialogContent = $(parameter + type + "-dialog-content");
+    var dialogContent = $$(parameter + type + "-dialog-content");
     dialogContent.style.display = "none";
-    var modal = $('modal');
+    var modal = $$('modal');
     modal.style.display = "none";
 }
 
@@ -473,18 +492,18 @@ function changeStep(stepDiv) {
 }
 
 function changePrice() {
-    var price = $("price");
+    var price = $$("price");
     var priceValue = parseInt(price.childNodes[0].nodeValue);
     priceValue = priceValue / productNumber;
-    priceValue = priceValue * parseInt($("edition-field").value);
-    productNumber = parseInt($("edition-field").value);
+    priceValue = priceValue * parseInt($$("edition-field").value);
+    productNumber = parseInt($$("edition-field").value);
     price.childNodes[0].nodeValue = priceValue;
 }
 
 /** Событие, срабатываемое при нажатии на области, которая находится вне диалогового окна.
 Влечет за собой его закрытие.*/
 window.onclick = function (event) {
-    var modal = $('modal');
+    var modal = $$('modal');
     if (event.target == modal) {
         closeDialog();
     }
@@ -496,17 +515,6 @@ String.prototype.endsWith = function (suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
 
-function loadStitches() {
-    var stitches = $("stitches");
-    var isFirst = true;
-    for (var stitch in config["Parameters"]["Stitch"]["Type"]) {
-        var entry = document.createElement("li");
-        var entryLink = document.createElement("a");
-        entryLink.setAttribute("href", "#");
-        entryLink.classList.add("stitch-link");
-        entryLink.value = config["Parameters"]["Stitch"]["Type"][stitch];
-        entryLink.appendChild(document.createTextNode(config["Parameters"]["Stitch"]["Type"][stitch]["Text"]));
-        entry.appendChild(entryLink);
-        stitches.appendChild(entry);
-    }
-}
+function $$(id) {
+    return document.getElementById(id);
+};
